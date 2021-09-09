@@ -10,7 +10,7 @@ sys.path.append("..")
     Sphinx core settings
 """
 project = "convert-case"
-version = "0.1.0"
+version = "1.0.0"
 author = "Joel Lefkowitz"
 master_doc = "index"
 
