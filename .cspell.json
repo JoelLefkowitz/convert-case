@@ -1,0 +1,48 @@
+{
+  "language": "en",
+  "ignorePaths": [
+    "./.cspell.txt",
+    "./package-lock.json",
+    "./yarn.lock",
+    ".gitignore",
+    "*.coverage",
+    "*.types",
+    "*.excalidraw",
+    "**/__pycache__/**",
+    "**/*.egg-info/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/sqlite3",
+    "**/venv/**"
+  ],
+  "dictionaries": [
+    "misc",
+    "node",
+    "python",
+    "softwareTerms",
+    "typescript",
+    "local"
+  ],
+  "words": [
+    "assertpy",
+    "autoflake",
+    "cobertura",
+    "conftest",
+    "doctest",
+    "envlist",
+    "excalidraw",
+    "freezegun",
+    "lefkowitz",
+    "noqa",
+    "pylintrc",
+    "quickdocs",
+    "rcfile",
+    "setuptools",
+    "skipsdist",
+    "subpackages",
+    "testenv",
+    "unimported"
+  ]
+}

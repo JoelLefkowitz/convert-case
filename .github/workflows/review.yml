@@ -1,0 +1,64 @@
+name: Review
+
+on: [push, pull_request]
+
+jobs:
+  review:
+    name: Run linters and tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: [3.6, 3.7, 3.8, 3.9]
+
+    steps:
+      - name: Set up pip package caching
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: ${{ runner.os }}-pip-
+
+      - name: Fetch yarn's cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Set up yarn package caching
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Set the python version
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Set the node version
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Checkout the source code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          pip install .[all]
+          yarn install --frozen-lockfile
+          yarn add global grunt-cli
+
+      - name: Run linters
+        run: grunt lint
+
+      - name: Run unit tests
+        run: grunt test
+
+      - name: Report unit test coverage
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: coverage/cobertura.xml
+        if: ${{ matrix.python == 3.9 }}
