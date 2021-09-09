@@ -1,4 +1,4 @@
-from src.definitions import SENTENCE
+from .definitions import SENTENCE
 
 
 def is_sentence_case(string: str) -> bool:

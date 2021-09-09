@@ -1,12 +1,12 @@
-from src.camel import camel_to_lower_case, is_camel_case
-from src.definitions import LOWER
-from src.exceptions import MixedCaseError
-from src.kebab import is_kebab_case, kebab_to_lower_case
-from src.pascal import is_pascal_case, pascal_to_lower_case
-from src.sentence import is_sentence_case, sentence_to_lower_case
-from src.snake import is_snake_case, snake_to_lower_case
-from src.title import is_title_case, title_to_lower_case
-from src.upper import is_upper_case, upper_to_lower_case
+from .camel import camel_to_lower_case, is_camel_case
+from .definitions import LOWER
+from .exceptions import MixedCaseError
+from .kebab import is_kebab_case, kebab_to_lower_case
+from .pascal import is_pascal_case, pascal_to_lower_case
+from .sentence import is_sentence_case, sentence_to_lower_case
+from .snake import is_snake_case, snake_to_lower_case
+from .title import is_title_case, title_to_lower_case
+from .upper import is_upper_case, upper_to_lower_case
 
 
 def lower_case(string: str) -> str:

@@ -1,4 +1,4 @@
-from src.definitions import SNAKE
+from .definitions import SNAKE
 
 
 def is_snake_case(string: str) -> bool:

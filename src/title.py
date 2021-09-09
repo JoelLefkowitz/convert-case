@@ -1,4 +1,4 @@
-from src.definitions import TITLE
+from .definitions import TITLE
 
 
 def is_title_case(string: str) -> bool:

@@ -1,4 +1,4 @@
-from src.definitions import UPPER
+from .definitions import UPPER
 
 
 def is_upper_case(string: str) -> bool:

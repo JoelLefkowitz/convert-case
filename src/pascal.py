@@ -1,6 +1,6 @@
 from functools import reduce
 
-from src.definitions import PASCAL
+from .definitions import PASCAL
 
 
 def is_pascal_case(string: str) -> bool:

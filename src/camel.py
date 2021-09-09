@@ -1,6 +1,6 @@
 from functools import reduce
 
-from src.definitions import CAMEL
+from .definitions import CAMEL
 
 
 def is_camel_case(string: str) -> bool:

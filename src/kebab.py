@@ -1,4 +1,4 @@
-from src.definitions import KEBAB
+from .definitions import KEBAB
 
 
 def is_kebab_case(string: str) -> bool:

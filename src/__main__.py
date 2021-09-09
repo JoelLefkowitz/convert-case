@@ -1,11 +1,11 @@
-from src.camel import lower_to_camel_case
-from src.kebab import lower_to_kebab_case
-from src.lower import lower_case
-from src.pascal import lower_to_pascal_case
-from src.sentence import lower_to_sentence_case
-from src.snake import lower_to_snake_case
-from src.title import lower_to_title_case
-from src.upper import lower_to_upper_case
+from .camel import lower_to_camel_case
+from .kebab import lower_to_kebab_case
+from .lower import lower_case
+from .pascal import lower_to_pascal_case
+from .sentence import lower_to_sentence_case
+from .snake import lower_to_snake_case
+from .title import lower_to_title_case
+from .upper import lower_to_upper_case
 
 
 def pascal_case(string: str) -> str:
