@@ -1,13 +1,6 @@
-from src.__main__ import (
-    lower_case,
-    camel_case,
-    kebab_case,
-    pascal_case,
-    sentence_case,
-    snake_case,
-    title_case,
-    upper_case,
-)  # noqa
+from src.__main__ import lower_case  # noqa
+from src.__main__ import (camel_case, kebab_case, pascal_case, sentence_case,
+                          snake_case, title_case, upper_case)
 from src.camel import is_camel_case  # noqa
 from src.kebab import is_kebab_case  # noqa
 from src.lower import is_lower_case  # noqa

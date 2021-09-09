@@ -40,37 +40,37 @@ def pascal_case(string: str) -> str:
     ...
 def is_pascal_case(string: str) -> bool:
     ...
-    
+
 def camel_case(string: str) -> str:
     ...
 def is_camel_case(string: str) -> bool:
     ...
-    
+
 def kebab_case(string: str) -> str:
     ...
 def is_kebab_case(string: str) -> bool:
     ...
-    
+
 def sentence_case(string: str) -> str:
     ...
 def is_sentence_case(string: str) -> bool:
     ...
-    
+
 def snake_case(string: str) -> str:
     ...
 def is_snake_case(string: str) -> bool:
     ...
-    
+
 def title_case(string: str) -> str:
     ...
 def is_title_case(string: str) -> bool:
     ...
-    
+
 def upper_case(string: str) -> str:
     ...
 def is_upper_case(string: str) -> bool:
     ...
-    
+
 ```
 
 ### Definitions
@@ -178,7 +178,6 @@ Lots of love to the open source community!
 [coffee]: https://www.buymeacoffee.com/joellefkowitz
 [coffee_button]: https://cdn.buymeacoffee.com/buttons/default-blue.png
 [readthedocs]: https://convert_case.readthedocs.io/en/latest/
-[algorithm]: https://github.com/JoelLefkowitz/convert_case/blob/master/docs/algorithm.png
 
 <!-- Acknowledgments -->
 

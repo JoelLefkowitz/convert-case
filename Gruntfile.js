@@ -9,6 +9,7 @@ const tools = {
   autoflake: `autoflake . ${flakeOptions}`,
   black: 'black .',
   cspell: 'npx cspell ".*" "*" "**/*"',
+  eslint: 'npx eslint "**/*.js" --fix --ignore-path .gitignore',
   isort: 'isort .',
   mypy: `mypy . --exclude '(src/core|venv)'`,
   prettier: 'npx prettier . --write --ignore-path .gitignore --single-quote',
@@ -23,9 +24,10 @@ const comprehension = (obj, cb) =>
   Object.fromEntries(Object.entries(obj).map(cb));
 
 const commands = (arr) =>
-  arr.reduce((acc, x) => acc.concat(x.includes(':') ? x : 'exec:'.concat(x)), [
-    'clean',
-  ]);
+  arr.reduce(
+    (acc, x) => acc.concat(x.includes(':') ? x : 'exec:'.concat(x)),
+    ['clean']
+  );
 
 module.exports = (grunt) => {
   grunt.initConfig({
@@ -39,7 +41,7 @@ module.exports = (grunt) => {
   grunt.registerTask(
     'lint',
     'Lint the source code.',
-    commands(['cspell', 'pylint', 'mypy', 'remark'])
+    commands(['cspell', 'pylint', 'mypy', 'eslint', 'remark'])
   );
 
   grunt.registerTask(
