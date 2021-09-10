@@ -2,13 +2,11 @@ name: Publish
 
 on:
   push:
-    tags:
-      - "v*.*.*"
+    tags: "v*.*.*"
 
 jobs:
   publish:
     name: Publish the package on pypi
-    if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the source code
@@ -17,7 +15,7 @@ jobs:
       - name: Set the python version
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: 3.6
 
       - name: Install pip dependencies
         run: pip install .[all]
