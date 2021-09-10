@@ -1,0 +1,32 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  publish:
+    name: Publish the package on pypi
+    if: ${{ github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the source code
+        uses: actions/checkout@v2
+
+      - name: Set the python version
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install pip dependencies
+        run: pip install .[all]
+
+      - name: Build the distributions
+        run: python setup.py sdist bdist_wheel
+
+      - name: Publish the package
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}

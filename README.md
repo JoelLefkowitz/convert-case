@@ -117,6 +117,43 @@ grunt test
 | ab-cd-ef | ab cd ef | AB CD EF | Ab cd ef | Ab Cd Ef | abCdEf | ab_cd_ef | ab-cd-ef | AbCdEf |
 | Ab cd ef | ab cd ef | AB CD EF | Ab cd ef | Ab Cd Ef | abCdEf | ab_cd_ef | ab-cd-ef | AbCdEf |
 
+## Advanced
+
+A goal of this converter is that it is deterministic. If we consider the following examples we can see that this is not simple to achieve. How should we interpret the string 'ABC', is it in upper case or pascal case?
+
+| test  | upper | pascal |
+| ----- | ----- | ------ |
+| abc   | ABC   | Abc    |
+| a b c | A B C | ABC    |
+
+Our options are:
+
+- To consider strings with consecutive capitals like 'ABC' not to be pascal case. In this case 'a b c' is parsed to 'Abc' which is confusing.
+
+- To store some state that remembers the string's case before parsing. This would introduce too much complexity.
+
+- To prioritize parsing the string as one case unless told otherwise. We choose to pick upper case as the inferred case. The caveat here is that we will no longer be performing 'round trip' conversion.
+
+Round trip conversion:
+
+```python
+kebab_case('a b c')
+'a-b-c'
+
+lower_case('a-b-c')
+'a b c'
+```
+
+Not round trip conversion:
+
+```python
+pascal_case('a b c')
+'ABC'
+
+lower_case('ABC')
+'abc'
+```
+
 ## Documentation
 
 This repository's documentation is hosted on [readthedocs][readthedocs].
