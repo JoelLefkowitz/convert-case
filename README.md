@@ -128,7 +128,7 @@ A goal of this converter is that it is deterministic. If we consider the followi
 
 Our options are:
 
-- To consider strings with consecutive capitals like 'ABC' not to be pascal case. In this case 'a b c' is parsed to 'Abc' which is confusing.
+- To consider strings with consecutive capitals like 'ABC' not to be pascal case. If in this case 'a b c' is parsed to 'Abc' it would clash with parsing 'abc' into pascal case.
 
 - To store some state that remembers the string's case before parsing. This would introduce too much complexity.
 
