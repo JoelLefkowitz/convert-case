@@ -15,7 +15,7 @@ Convert between string cases with built-in case inference.
 ## Installing
 
 ```bash
-pip install convert_case
+pip install convert-case
 ```
 
 ## Usage
@@ -236,8 +236,8 @@ Lots of love to the open source community!
 
 <!-- Publishers shields -->
 
-[pypi_shield]: https://img.shields.io/pypi/v/convert_case
-[pypi_downloads_shield]: https://img.shields.io/pypi/dm/convert_case
+[pypi_shield]: https://img.shields.io/pypi/v/convert-case
+[pypi_downloads_shield]: https://img.shields.io/pypi/dm/convert-case
 
 <!-- Repository shields -->
 
