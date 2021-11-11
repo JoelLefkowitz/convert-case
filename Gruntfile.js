@@ -1,3 +1,38 @@
+const { merge } = require('lodash');
+const { simple } = require('quick-grunt');
+
+const tasks = [
+  {
+    name: 'lint',
+    description: 'Lint the source code.',
+    exec: ['cspell', 'pylint', 'autoflake', 'mypy', 'remark'],
+  },
+  {
+    name: 'format',
+    description: 'Format the source code.',
+    exec: ['black', 'isort', 'prettier', 'alphabetize'],
+  },
+  {
+    name: 'test',
+    description: 'Compile and run unit tests.',
+    clean: ['tests'],
+    exec: ['tox'],
+  },
+  {
+    name: 'build',
+    description: 'Build source distributions for publishing.',
+    clean: ['build'],
+    exec: ['distributions'],
+  },
+];
+
+const clean = {
+  build: ['build', 'dist'],
+  tests: ['coverage'],
+};
+
+const copy = {}
+
 const flakeOptions = `
    -v -ri --exclude 'venv, conftest.py'
    --remove-unused-variables
@@ -5,54 +40,34 @@ const flakeOptions = `
    --ignore-init-module-imports
 `;
 
-const tools = {
+const linters = {
   autoflake: `autoflake . ${flakeOptions}`,
-  black: 'black .',
   cspell: 'npx cspell ".*" "*" "**/*"',
-  eslint: 'npx eslint "**/*.js" --fix --ignore-path .gitignore',
-  isort: 'isort .',
-  mypy: `mypy . --exclude '(src/core|venv)'`,
-  prettier: 'npx prettier . --write --ignore-path .gitignore --single-quote',
+  missing: 'conductor cspell words',
+  mypy: "mypy . --exclude '(src/core|venv)'",
   pylint: 'pylint --rcfile .pylintrc  --fail-under=8 src tests',
   remark: 'npx remark -r .remarkrc --ignore-path .gitignore . .github',
+};
+
+const formatters = {
+  alphabetize: 'conductor cspell format',
+  black: 'black .',
+  isort: 'isort .',
+  prettier: 'npx prettier . --write',
+};
+
+const setuptools = {
+  distributions: 'python setup.py sdist bdist_wheel',
+};
+
+const tests = {
   tox: 'tox . -e py',
 };
 
-const kvs = (arr) => Object.fromEntries(arr.map((i) => [i, i]));
-
-const comprehension = (obj, cb) =>
-  Object.fromEntries(Object.entries(obj).map(cb));
-
-const commands = (arr) =>
-  arr.reduce(
-    (acc, x) => acc.concat(x.includes(':') ? x : 'exec:'.concat(x)),
-    ['clean']
-  );
-
-module.exports = (grunt) => {
-  grunt.initConfig({
-    clean: kvs(['coverage']),
-    exec: comprehension(tools, ([k, v]) => [k, { cmd: v, stdout: 'inherit' }]),
-  });
-
-  grunt.loadNpmTasks('grunt-exec');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-
-  grunt.registerTask(
-    'lint',
-    'Lint the source code.',
-    commands(['cspell', 'pylint', 'mypy', 'eslint', 'remark'])
-  );
-
-  grunt.registerTask(
-    'format',
-    'Format the source code.',
-    commands(['black', 'isort', 'autoflake', 'prettier'])
-  );
-
-  grunt.registerTask(
-    'test',
-    'Sequentially run all unit test suites',
-    commands(['tox'])
-  );
+const docs = {
+  quickdocs: 'quickdocs .quickdocs.yml',
 };
+
+const exec = merge(linters, formatters, setuptools, tests, docs);
+
+module.exports = simple({ clean, copy, exec }, tasks);

@@ -2,27 +2,55 @@ name: Publish
 
 on:
   push:
-    tags: 
-      - "v*.*.*"
+    tags:
+      - 'v*.*.*'
 
 jobs:
   publish:
     name: Publish the package on pypi
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the source code
-        uses: actions/checkout@v2
+      - name: Set up pip package caching
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: ${{ runner.os }}-pip-
+
+      - name: Fetch yarn's cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Set up yarn package caching
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       - name: Set the python version
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6
+          python-version: ${{ matrix.python }}
 
-      - name: Install pip dependencies
-        run: pip install .[all]
+      - name: Set the node version
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Checkout the source code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          pip install .[all]
+          yarn install --frozen-lockfile
+          yarn add global grunt-cli
 
       - name: Build the distributions
-        run: python setup.py sdist bdist_wheel
+        run: grunt build
 
       - name: Publish the package
         uses: pypa/gh-action-pypi-publish@release/v1

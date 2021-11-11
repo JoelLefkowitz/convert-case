@@ -1,0 +1,20 @@
+output: .
+
+collections:
+  - common
+  - python
+
+excludes:
+  - .cspell.json
+  - README.md
+
+render_context:
+  name: convert-case
+  description: Convert between string cases with built-in case inference.
+  version: 1.1.1
+  author: joellefkowitz
+  author_email: joellefkowitz@hotmail.com
+  verbose_name: Convert Case
+  verbose_author: Joel Lefkowitz
+  repository: https://github.com/JoelLefkowitz/convert-case
+  codacy_id: 3b8afbb8327d424b9990741fd587d7c4

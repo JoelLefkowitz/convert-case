@@ -7,15 +7,30 @@ Convert between string cases with built-in case inference.
 | Source     | Shields                                                                                                                                       |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | Project    | ![release][release_shield] ![license][license_shield] ![lines][lines_shield] ![languages][languages_shield]                                   |
-| Health     | ![readthedocs][readthedocs_shield] ![github_review][github_review_shield] ![codacy][codacy_shield] ![codacy_coverage][codacy_coverage_shield] |
-| Publishers | ![pypi][pypi_shield] ![pypi_downloads][pypi_downloads_shield]                                                                                 |
+| Health     | ![readthedocs][readthedocs_shield] ![github_review][github_review_shield]![codacy][codacy_shield] ![codacy_coverage][codacy_coverage_shield]  |
+| Publishers | ![pypi][pypi_shield] ![pypi_downloads][pypi_downloads_shield]                                                                                     |
 | Repository | ![issues][issues_shield] ![issues_closed][issues_closed_shield] ![pulls][pulls_shield] ![pulls_closed][pulls_closed_shield]                   |
 | Activity   | ![contributors][contributors_shield] ![monthly_commits][monthly_commits_shield] ![last_commit][last_commit_shield]                            |
 
 ## Installing
 
+Install the package from pypi:
+
 ```bash
 pip install convert-case
+```
+
+To experiment with the source code locally, clone the repository:
+
+```bash
+git clone https://github.com/joellefkowitz/convert-case
+```
+
+To install linters, formatters and test runners:
+
+```bash
+pip install .[all]
+npm install
 ```
 
 ## Usage
@@ -70,7 +85,6 @@ def upper_case(string: str) -> str:
     ...
 def is_upper_case(string: str) -> bool:
     ...
-
 ```
 
 ### Definitions
@@ -198,9 +212,9 @@ Please read this repository's guidelines on [contributing](CONTRIBUTING.md) for 
 
 ## Contributors
 
-- **Joel Lefkowitz** - _Initial work_ - [Joel Lefkowitz][author]
+- **joellefkowitz** - _Initial work_ - [joellefkowitz][author]
 
-[![Buy Me A Coffee][coffee_button]][coffee]
+[![Buy Me A Coffee][coffee_button]][author_coffee]
 
 ## Remarks
 
@@ -208,17 +222,20 @@ Lots of love to the open source community!
 
 ![Be kind][be_kind]
 
-<!-- Public links -->
+<!-- Project links -->
+
+[readthedocs]: https://convert-case.readthedocs.io/en/latest/
+
+<!-- External links -->
 
 [semver]: http://semver.org/
 [be_kind]: https://media.giphy.com/media/osAcIGTSyeovPq6Xph/giphy.gif
-[coffee]: https://www.buymeacoffee.com/joellefkowitz
-[coffee_button]: https://cdn.buymeacoffee.com/buttons/default-blue.png
-[readthedocs]: https://convert_case.readthedocs.io/en/latest/
 
-<!-- Acknowledgments -->
+<!-- Contributor links -->
 
 [author]: https://github.com/joellefkowitz
+[author_coffee]: https://www.buymeacoffee.com/joellefkowitz
+[coffee_button]: https://cdn.buymeacoffee.com/buttons/default-blue.png
 
 <!-- Project shields -->
 
