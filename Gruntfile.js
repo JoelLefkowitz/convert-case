@@ -53,7 +53,7 @@ const formatters = {
   alphabetize: 'conductor cspell format',
   black: 'black .',
   isort: 'isort .',
-  prettier: 'npx prettier . --write',
+  prettier: 'npx prettier . --write --ignore-path .gitignore',
 };
 
 const setuptools = {
