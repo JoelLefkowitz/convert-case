@@ -3,7 +3,7 @@ name: Publish
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - "v*.*.*"
 
 jobs:
   publish:
@@ -46,6 +46,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install .[all]
+          pip uninstall $(python setup.py --name) --yes
           yarn install --frozen-lockfile
           yarn add global grunt-cli
 

@@ -1,8 +1,9 @@
 import pytest
 from assertpy import assert_that
-from src import is_title_case, title_case
 
-from tests.loader import load_test_cases, select_case_match_tests, select_parser_tests
+from src import is_title_case, title_case
+from tests.loader import (load_test_cases, select_case_match_tests,
+                          select_parser_tests)
 
 cases = load_test_cases()
 

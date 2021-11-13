@@ -1,4 +1,5 @@
 import pytest
+
 from src import lower_case
 from src.exceptions import MixedCaseError
 
