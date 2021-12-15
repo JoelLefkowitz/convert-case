@@ -22,15 +22,16 @@ render_context:
     author_email: joellefkowitz@hotmail.com
     verbose_author: Joel Lefkowitz
 
-  involvement: Owner
-  lifecycle: Production
-  publisher: PyPi
-  
-  languages: 
-    - Python
+  portfolio:
+    involvement: Owner
+    lifecycle: Production
+    publisher: PyPi
+    
+    languages: 
+      - Python
 
-  paradigms:
-    - Functional
+    paradigms:
+      - Functional
 
 clear_top_level: true
 logical_grouping: true
