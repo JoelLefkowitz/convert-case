@@ -204,7 +204,7 @@ bump2version patch
 
 ## Changelog
 
-Please read this repository's [CHANGELOG](CHANGELOG.md) for details on changes that have been made.
+Please read this repository's [changelog](CHANGELOG.md) for details on changes that have been made.
 
 ## Contributing
 
