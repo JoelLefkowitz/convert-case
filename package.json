@@ -15,6 +15,7 @@
   },
   "metadata": {
     "documentation": "https://convert-case.readthedocs.io/en/latest",
+    "packages": "https://pypi.org/project/convert-case",
     "languages": [
       "Python"
     ],
