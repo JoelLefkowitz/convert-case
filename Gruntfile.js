@@ -61,7 +61,7 @@ const setuptools = {
 };
 
 const tests = {
-  tox: "tox . -e py",
+  tox: "tox -e py",
 };
 
 const docs = {
