@@ -90,17 +90,17 @@ def is_upper_case(string: str) -> bool:
 ### Definitions
 
 ```python
-LOWER = re.compile(r"^[a-z\s]*$")
-UPPER = re.compile(r"^[A-Z\s]*$")
+LOWER = re.compile(r"^[a-z0-9\s]*$")
+UPPER = re.compile(r"^[A-Z0-9\s]*$")
 
-TITLE = re.compile(r"^(([A-Z][a-z]*)(\s[A-Z][a-z]*)*)?$")
-SENTENCE = re.compile(r"^(([A-Z][a-z]*)(\s[a-z]*)*)?$")
+TITLE = re.compile(r"^(([A-Z0-9][a-z0-9]*)(\s[A-Z0-9][a-z0-9]*)*)?$")
+SENTENCE = re.compile(r"^(([A-Z0-9][a-z0-9]*)(\s[a-z0-9]*)*)?$")
 
-CAMEL = re.compile(r"^([a-z][a-zA-Z]*)?$")
-PASCAL = re.compile(r"^([A-Z]|([A-Z][a-z]+)*)?$")
+CAMEL = re.compile(r"^([a-z0-9][a-zA-Z0-9]*)?$")
+PASCAL = re.compile(r"^([A-Z0-9]|([A-Z0-9][a-z0-9]+)*)?$")
 
-SNAKE = re.compile(r"^([a-z]+(_[a-z]+)*)?$")
-KEBAB = re.compile(r"^([a-z]+(-[a-z]+)*)?$")
+SNAKE = re.compile(r"^([a-z0-9]+(_[a-z0-9]+)*)?$")
+KEBAB = re.compile(r"^([a-z0-9]+(-[a-z0-9]+)*)?$")
 ```
 
 ## Tests
@@ -130,6 +130,19 @@ grunt test
 | AbCdEf   | ab cd ef | AB CD EF | Ab cd ef | Ab Cd Ef | abCdEf | ab_cd_ef | ab-cd-ef | AbCdEf |
 | ab-cd-ef | ab cd ef | AB CD EF | Ab cd ef | Ab Cd Ef | abCdEf | ab_cd_ef | ab-cd-ef | AbCdEf |
 | Ab cd ef | ab cd ef | AB CD EF | Ab cd ef | Ab Cd Ef | abCdEf | ab_cd_ef | ab-cd-ef | AbCdEf |
+
+#### Numbers
+
+Numbers are treated as letters with no specific case.
+
+| test     | lower    | upper    | sentence | title    | camel  | snake    | kebab    | pascal |
+| -------- | -------- | -------- | -------- | -------- | ------ | -------- | -------- | ------ |
+| 1        | 1        | 1        | 1        | 1        | 1      | 1        | 1        | 1      |
+| 1bc      | 1bc      | 1BC      | 1bc      | 1bc      | 1bc    | 1bc      | 1bc      | 1bc    |
+| a1c      | a1c      | A1C      | A1c      | A1c      | a1c    | a1c      | a1c      | A1c    |
+| ab1      | ab1      | AB1      | Ab1      | Ab1      | ab1    | ab1      | ab1      | Ab1    |
+| a1 c     | a1 c     | A1 C     | A1 c     | A1 C     | a1C    | a1_c     | a1-c     | A1C    |
+| a1-c     | a1 c     | A1 C     | A1 c     | A1 C     | a1C    | a1_c     | a1-c     | A1C    |
 
 ## Advanced
 

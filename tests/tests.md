@@ -17,3 +17,9 @@
 | AbCdEf   | ab cd ef | AB CD EF | Ab cd ef | Ab Cd Ef | abCdEf | ab_cd_ef | ab-cd-ef | AbCdEf |
 | ab-cd-ef | ab cd ef | AB CD EF | Ab cd ef | Ab Cd Ef | abCdEf | ab_cd_ef | ab-cd-ef | AbCdEf |
 | Ab cd ef | ab cd ef | AB CD EF | Ab cd ef | Ab Cd Ef | abCdEf | ab_cd_ef | ab-cd-ef | AbCdEf |
+| 1        | 1        | 1        | 1        | 1        | 1      | 1        | 1        | 1      |
+| 1bc      | 1bc      | 1BC      | 1bc      | 1bc      | 1bc    | 1bc      | 1bc      | 1bc    |
+| a1c      | a1c      | A1C      | A1c      | A1c      | a1c    | a1c      | a1c      | A1c    |
+| ab1      | ab1      | AB1      | Ab1      | Ab1      | ab1    | ab1      | ab1      | Ab1    |
+| a1 c     | a1 c     | A1 C     | A1 c     | A1 C     | a1C    | a1_c     | a1-c     | A1C    |
+| a1-c     | a1 c     | A1 C     | A1 c     | A1 C     | a1C    | a1_c     | a1-c     | A1C    |
