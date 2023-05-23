@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   review:
     name: Run linters and tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         python: [3.6, 3.7, 3.8, 3.9]
@@ -15,7 +15,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('setup.py') }}
           restore-keys: ${{ runner.os }}-pip-
 
       - name: Fetch yarn's cache directory path
