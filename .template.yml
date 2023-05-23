@@ -11,7 +11,7 @@ render_context:
   project:
     name: convert-case
     description: Convert between string cases with built-in case inference.
-    version: 1.1.1
+    version: 1.2.1
     verbose_name: Convert Case
     repository: https://github.com/JoelLefkowitz/convert-case
     documentation: https://convert-case.readthedocs.io
