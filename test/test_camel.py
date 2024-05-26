@@ -1,9 +1,9 @@
 import pytest
+from .loader import (load_test_cases, select_case_match_tests,
+                     select_parser_tests)
 from assertpy import assert_that
-
-from src import camel_case, is_camel_case
-from tests.loader import (load_test_cases, select_case_match_tests,
-                          select_parser_tests)
+from src.camel import is_camel_case
+from src.convert import camel_case
 
 cases = load_test_cases()
 

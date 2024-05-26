@@ -1,7 +1,0 @@
-project: convert-case
-version: 1.2.2
-author: Joel Lefkowitz
-verbose_name: Convert Case
-html_title: Convert Case
-github_url: https://github.com/JoelLefkowitz/convert-case
-apidoc_module_dir: src

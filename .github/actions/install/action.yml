@@ -1,0 +1,27 @@
+name: Install
+description: Install dependencies
+
+inputs:
+  python-version:
+    description: Python version
+    default: "3.10"
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout the source code
+      uses: actions/checkout@v4
+
+    - name: Set the python version
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+        cache: pip
+
+    - name: Install pip dependencies
+      shell: bash
+      run: pip install .[all]
+
+    - name: Install apt dependencies
+      shell: bash
+      run: sudo apt-get install -y doxygen

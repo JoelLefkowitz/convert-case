@@ -1,0 +1,51 @@
+.content {
+  width: 100%;
+  padding: 0 40px;
+}
+
+.toc-drawer {
+  width: 400px;
+}
+
+.sidebar-brand-text {
+  text-align: center;
+}
+
+.sidebar-drawer {
+  width: 300px;
+}
+
+.sidebar-container {
+  width: 300px;
+}
+
+section#documentation,
+.footnote-list.brackets {
+  display: none;
+}
+
+@media (max-width: 67em) {
+  .content {
+    padding: 0 20px;
+  }
+
+  .icon {
+    margin: 0 10px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .sidebar-drawer {
+    left: -300px;
+  }
+}
+
+@media (max-width: 82em) {
+  .toc-drawer {
+    max-width: 300px;
+    right: -400px;
+  }
+}

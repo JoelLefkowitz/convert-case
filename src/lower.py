@@ -8,8 +8,10 @@ from .snake import is_snake_case, snake_to_lower_case
 from .title import is_title_case, title_to_lower_case
 from .upper import is_upper_case, upper_to_lower_case
 
+
 def is_lower_case(string: str) -> bool:
     return LOWER.match(string) is not None
+
 
 def lower_case(string: str) -> str:
     to_lower_case = {

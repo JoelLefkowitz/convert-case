@@ -3,58 +3,28 @@ name: Publish
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - "*.*.*"
 
 jobs:
   publish:
-    name: Publish the package on pypi
     runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+
+    environment:
+      name: PyPI
+      url: https://pypi.org/p/miniscons
+
     steps:
-      - name: Set up pip package caching
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: ${{ runner.os }}-pip-
-
-      - name: Fetch yarn's cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Set up yarn package caching
-        uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Set the python version
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python }}
-
-      - name: Set the node version
-        uses: actions/setup-node@v2
-        with:
-          node-version: 18
-
       - name: Checkout the source code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: |
-          pip install .[all]
-          pip uninstall $(python setup.py --name) --yes
-          yarn install --frozen-lockfile
-          yarn global add grunt-cli
+        uses: ./.github/actions/install
 
-      - name: Build the distributions
-        run: grunt build
+      - name: Build the package
+        run: python -m build
 
       - name: Publish the package
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          user: __token__
-          password: ${{ secrets.PYPI_API_TOKEN }}

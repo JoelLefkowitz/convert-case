@@ -1,8 +1,7 @@
 import os
+from .exceptions import MissingTestCases
 from functools import reduce
 from typing import Dict, List, Tuple
-
-from tests.exceptions import MissingTestCases
 
 
 def load_test_cases() -> Dict[str, List[str]]:

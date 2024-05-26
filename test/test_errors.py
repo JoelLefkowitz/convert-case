@@ -1,7 +1,6 @@
 import pytest
-
-from src import lower_case
 from src.exceptions import MixedCaseError
+from src.lower import lower_case
 
 
 def test_mixed_case() -> None:

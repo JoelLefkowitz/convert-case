@@ -1,37 +1,22 @@
-# Convert Case
+# Convert case
 
 Convert between string cases with built-in case inference.
 
-## Status
+![Review](https://img.shields.io/github/actions/workflow/status/JoelLefkowitz/convert-case/review.yml)
+![Version](https://img.shields.io/pypi/v/convert-case)
+![Downloads](https://img.shields.io/pypi/dw/convert-case)
+![Quality](https://img.shields.io/codacy/grade/3b8afbb8327d424b9990741fd587d7c4)
+![Coverage](https://img.shields.io/codacy/coverage/3b8afbb8327d424b9990741fd587d7c4)
 
-| Source     | Shields                                                                                                                                      |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| Project    | ![release][release_shield] ![license][license_shield] ![lines][lines_shield] ![languages][languages_shield]                                  |
-| Health     | ![readthedocs][readthedocs_shield] ![github_review][github_review_shield]![codacy][codacy_shield] ![codacy_coverage][codacy_coverage_shield] |
-| Publishers | ![pypi][pypi_shield] ![pypi_downloads][pypi_downloads_shield]                                                                                |
-| Repository | ![issues][issues_shield] ![issues_closed][issues_closed_shield] ![pulls][pulls_shield] ![pulls_closed][pulls_closed_shield]                  |
-| Activity   | ![contributors][contributors_shield] ![monthly_commits][monthly_commits_shield] ![last_commit][last_commit_shield]                           |
-
-## Installing
-
-Install the package from pypi:
+## Installation
 
 ```bash
 pip install convert-case
 ```
 
-To experiment with the source code locally, clone the repository:
+## Documentation
 
-```bash
-git clone https://github.com/joellefkowitz/convert-case
-```
-
-To install linters, formatters and test runners:
-
-```bash
-pip install .[all]
-npm install
-```
+Documentation and more detailed examples are hosted on [Github Pages](https://joellefkowitz.github.io/convert-case).
 
 ## Usage
 
@@ -103,14 +88,6 @@ SNAKE = re.compile(r"^([a-z0-9]+(_[a-z0-9]+)*)?$")
 KEBAB = re.compile(r"^([a-z0-9]+(-[a-z0-9]+)*)?$")
 ```
 
-## Tests
-
-To run unit tests:
-
-```bash
-grunt test
-```
-
 ### Test cases
 
 | test     | lower    | upper    | sentence | title    | camel  | snake    | kebab    | pascal |
@@ -135,16 +112,16 @@ grunt test
 
 Numbers are treated as letters with no specific case.
 
-| test     | lower    | upper    | sentence | title    | camel  | snake    | kebab    | pascal |
-| -------- | -------- | -------- | -------- | -------- | ------ | -------- | -------- | ------ |
-| 1        | 1        | 1        | 1        | 1        | 1      | 1        | 1        | 1      |
-| 1bc      | 1bc      | 1BC      | 1bc      | 1bc      | 1bc    | 1bc      | 1bc      | 1bc    |
-| a1c      | a1c      | A1C      | A1c      | A1c      | a1c    | a1c      | a1c      | A1c    |
-| ab1      | ab1      | AB1      | Ab1      | Ab1      | ab1    | ab1      | ab1      | Ab1    |
-| a1 c     | a1 c     | A1 C     | A1 c     | A1 C     | a1C    | a1_c     | a1-c     | A1C    |
-| a1-c     | a1 c     | A1 C     | A1 c     | A1 C     | a1C    | a1_c     | a1-c     | A1C    |
+| test | lower | upper | sentence | title | camel | snake | kebab | pascal |
+| ---- | ----- | ----- | -------- | ----- | ----- | ----- | ----- | ------ |
+| 1    | 1     | 1     | 1        | 1     | 1     | 1     | 1     | 1      |
+| 1bc  | 1bc   | 1BC   | 1bc      | 1bc   | 1bc   | 1bc   | 1bc   | 1bc    |
+| a1c  | a1c   | A1C   | A1c      | A1c   | a1c   | a1c   | a1c   | A1c    |
+| ab1  | ab1   | AB1   | Ab1      | Ab1   | ab1   | ab1   | ab1   | Ab1    |
+| a1 c | a1 c  | A1 C  | A1 c     | A1 C  | a1C   | a1_c  | a1-c  | A1C    |
+| a1-c | a1 c  | A1 C  | A1 c     | A1 C  | a1C   | a1_c  | a1-c  | A1C    |
 
-## Advanced
+## Discussion
 
 A goal of this converter is that it is deterministic. If we consider the following examples we can see that this is not simple to achieve. How should we interpret the string 'ABC', is it in upper case or pascal case?
 
@@ -181,103 +158,71 @@ lower_case('ABC')
 'abc'
 ```
 
-## Documentation
-
-This repository's documentation is hosted on [readthedocs][readthedocs].
-
 ## Tooling
+
+### Dependencies
+
+To install dependencies:
+
+```bash
+yarn install
+pip install .[all]
+```
+
+### Tests
+
+To run tests:
+
+```bash
+thx test
+```
+
+### Documentation
+
+To generate the documentation locally:
+
+```bash
+thx docs
+```
+
+### Linters
 
 To run linters:
 
 ```bash
-grunt lint
+thx lint
 ```
+
+### Formatters
 
 To run formatters:
 
 ```bash
-grunt format
+thx format
 ```
 
-## Continuous integration
+## Contributing
 
-This repository uses github actions to lint and test each commit. Formatting tasks and writing/generating documentation must be done before committing new code.
+Please read this repository's [Code of Conduct](CODE_OF_CONDUCT.md) which outlines our collaboration standards and the [Changelog](CHANGELOG.md) for details on breaking changes that have been made.
 
-## Versioning
+This repository adheres to semantic versioning standards. For more information on semantic versioning visit [SemVer](https://semver.org).
 
-This repository adheres to semantic versioning standards.
-For more information on semantic versioning visit [SemVer][semver].
-
-Bump2version is used to version and tag changes.
-For example:
+Bump2version is used to version and tag changes. For example:
 
 ```bash
 bump2version patch
 ```
 
-## Changelog
+### Contributors
 
-Please read this repository's [changelog](CHANGELOG.md) for details on changes that have been made.
-
-## Contributing
-
-Please read this repository's guidelines on [contributing](CONTRIBUTING.md) for details on the process for submitting pull requests. Moreover, our [code of conduct](CODE_OF_CONDUCT.md) declares our collaboration standards.
-
-## Contributors
-
-- **joellefkowitz** - _Initial work_ - [joellefkowitz][author]
-
-[![Buy Me A Coffee][coffee_button]][author_coffee]
+- [Joel Lefkowitz](https://github.com/joellefkowitz) - Initial work
 
 ## Remarks
 
 Lots of love to the open source community!
 
-![Be kind][be_kind]
-
-<!-- Project links -->
-
-[readthedocs]: https://convert-case.readthedocs.io/en/latest/
-
-<!-- External links -->
-
-[semver]: http://semver.org/
-[be_kind]: https://media.giphy.com/media/osAcIGTSyeovPq6Xph/giphy.gif
-
-<!-- Contributor links -->
-
-[author]: https://github.com/joellefkowitz
-[author_coffee]: https://www.buymeacoffee.com/joellefkowitz
-[coffee_button]: https://cdn.buymeacoffee.com/buttons/default-blue.png
-
-<!-- Project shields -->
-
-[release_shield]: https://img.shields.io/github/v/tag/joellefkowitz/convert-case
-[license_shield]: https://img.shields.io/github/license/joellefkowitz/convert-case
-[lines_shield]: https://img.shields.io/tokei/lines/github/joellefkowitz/convert-case
-[languages_shield]: https://img.shields.io/github/languages/count/joellefkowitz/convert-case
-
-<!-- Health shields -->
-
-[readthedocs_shield]: https://img.shields.io/readthedocs/convert-case
-[github_review_shield]: https://img.shields.io/github/workflow/status/JoelLefkowitz/convert-case/Review
-[codacy_shield]: https://img.shields.io/codacy/grade/3b8afbb8327d424b9990741fd587d7c4
-[codacy_coverage_shield]: https://img.shields.io/codacy/coverage/3b8afbb8327d424b9990741fd587d7c4
-
-<!-- Publishers shields -->
-
-[pypi_shield]: https://img.shields.io/pypi/v/convert-case
-[pypi_downloads_shield]: https://img.shields.io/pypi/dm/convert-case
-
-<!-- Repository shields -->
-
-[issues_shield]: https://img.shields.io/github/issues/joellefkowitz/convert-case
-[issues_closed_shield]: https://img.shields.io/github/issues-closed/joellefkowitz/convert-case
-[pulls_shield]: https://img.shields.io/github/issues-pr/joellefkowitz/convert-case
-[pulls_closed_shield]: https://img.shields.io/github/issues-pr-closed/joellefkowitz/convert-case
-
-<!-- Activity shields -->
-
-[contributors_shield]: https://img.shields.io/github/contributors/joellefkowitz/convert-case
-[monthly_commits_shield]: https://img.shields.io/github/commit-activity/m/joellefkowitz/convert-case
-[last_commit_shield]: https://img.shields.io/github/last-commit/joellefkowitz/convert-case
+<div align='center'>
+    <img width=200 height=200 src='https://media.giphy.com/media/osAcIGTSyeovPq6Xph/giphy.gif' alt='Be kind to your mind' />
+    <img width=200 height=200 src='https://media.giphy.com/media/KEAAbQ5clGWJwuJuZB/giphy.gif' alt='Love each other' />
+    <img width=200 height=200 src='https://media.giphy.com/media/WRWykrFkxJA6JJuTvc/giphy.gif' alt="It's ok to have a bad day" />
+</div>

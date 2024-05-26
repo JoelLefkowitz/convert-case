@@ -1,9 +1,9 @@
 import pytest
+from .loader import (load_test_cases, select_case_match_tests,
+                     select_parser_tests)
 from assertpy import assert_that
-
-from src import is_kebab_case, kebab_case
-from tests.loader import (load_test_cases, select_case_match_tests,
-                          select_parser_tests)
+from src.convert import kebab_case
+from src.kebab import is_kebab_case
 
 cases = load_test_cases()
 

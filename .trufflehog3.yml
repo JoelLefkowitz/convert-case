@@ -1,0 +1,22 @@
+severity: low
+exclude:
+  - message: Giphy links
+    pattern: media\.giphy\.com
+
+  - message: Shield links
+    pattern: img\.shields\.io
+
+  - message: Dependencies
+    paths:
+      - node_modules
+      - venv
+
+  - message: Tooling outputs
+    paths:
+      - .mypy_cache
+      - .pytest_cache
+      - .thx
+      - docs/dist
+      - package-lock.json
+      - yarn-error.log
+      - yarn.lock

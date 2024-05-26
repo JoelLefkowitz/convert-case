@@ -1,9 +1,9 @@
 import pytest
+from .loader import (load_test_cases, select_case_match_tests,
+                     select_parser_tests)
 from assertpy import assert_that
-
-from src import is_snake_case, snake_case
-from tests.loader import (load_test_cases, select_case_match_tests,
-                          select_parser_tests)
+from src.convert import snake_case
+from src.snake import is_snake_case
 
 cases = load_test_cases()
 

@@ -1,9 +1,9 @@
 import pytest
+from .loader import (load_test_cases, select_case_match_tests,
+                     select_parser_tests)
 from assertpy import assert_that
-
-from src import is_pascal_case, pascal_case
-from tests.loader import (load_test_cases, select_case_match_tests,
-                          select_parser_tests)
+from src.convert import pascal_case
+from src.pascal import is_pascal_case
 
 cases = load_test_cases()
 

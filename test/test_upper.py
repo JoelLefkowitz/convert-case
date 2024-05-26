@@ -1,9 +1,9 @@
 import pytest
+from .loader import (load_test_cases, select_case_match_tests,
+                     select_parser_tests)
 from assertpy import assert_that
-
-from src import is_upper_case, upper_case
-from tests.loader import (load_test_cases, select_case_match_tests,
-                          select_parser_tests)
+from src.convert import upper_case
+from src.upper import is_upper_case
 
 cases = load_test_cases()
 

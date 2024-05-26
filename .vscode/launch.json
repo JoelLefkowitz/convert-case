@@ -2,10 +2,25 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python: Module",
-      "type": "python",
+      "name": "Start",
+      "type": "debugpy",
       "request": "launch",
-      "module": "src"
+      "program": "${file}",
+      "justMyCode": true,
+      "cwd": "${workspaceRoot}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Test",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["${file}"],
+      "justMyCode": true,
+      "cwd": "${workspaceRoot}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
     }
   ]
 }
