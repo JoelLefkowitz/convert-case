@@ -1,13 +1,4 @@
 {
-  "metadata": {
-    "publisher": "PyPI",
-    "languages": [
-      "Python"
-    ],
-    "frameworks": [],
-    "paradigms": [],
-    "lifecycle": "Alpha"
-  },
   "scripts": {
     "postinstall": "husky install"
   },
