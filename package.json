@@ -1,6 +1,7 @@
 {
+  "packageManager": "yarn@4.1.1",
   "scripts": {
-    "postinstall": "husky install"
+    "postinstall": "husky"
   },
   "devDependencies": {
     "cspell": "^8.0.0",

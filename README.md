@@ -8,7 +8,7 @@ Convert between string cases with built-in case inference.
 ![Quality](https://img.shields.io/codacy/grade/3b8afbb8327d424b9990741fd587d7c4)
 ![Coverage](https://img.shields.io/codacy/coverage/3b8afbb8327d424b9990741fd587d7c4)
 
-## Installation
+## Installing
 
 ```bash
 pip install convert-case
