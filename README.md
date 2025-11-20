@@ -2,7 +2,7 @@
 
 Convert between string cases with built-in case inference.
 
-![Review](https://img.shields.io/github/actions/workflow/status/JoelLefkowitz/convert-case/review.yml)
+![Review](https://img.shields.io/github/actions/workflow/status/JoelLefkowitz/convert-case/review.yaml)
 ![Version](https://img.shields.io/pypi/v/convert-case)
 ![Downloads](https://img.shields.io/pypi/dw/convert-case)
 ![Quality](https://img.shields.io/codacy/grade/3b8afbb8327d424b9990741fd587d7c4)
